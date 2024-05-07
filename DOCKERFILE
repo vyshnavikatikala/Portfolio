@@ -1,0 +1,17 @@
+# Use an official lightweight Node.js image
+FROM node:alpine
+
+# Set the working directory in the container
+WORKDIR /usr/src/app
+
+# Copy all files and directories into the container
+COPY . .
+
+# Install http-server globally using npm
+RUN npm install -g http-server
+
+# Expose port 80 to allow external access
+EXPOSE 80
+
+# Command to run when the container starts
+CMD ["http-server", "-p", "80"]
